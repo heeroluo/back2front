@@ -1,0 +1,8 @@
+{{ extend('layouts/basic/1.0/basic') }}
+
+{{#block ('body')}}
+	<p>{{ info.message }}</p>
+	{{#if (info.stack)}}
+		<pre>{{info.stack}}</pre>
+	{{/if}}
+{{/block}}

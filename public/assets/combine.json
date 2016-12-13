@@ -1,0 +1,12 @@
+{
+	
+
+	"layouts/basic/basic": [
+		"components/header/**/*",
+		"components/footer/**/*"
+	],
+
+	"^lib/xtpl/xtpl": [
+
+	]
+}

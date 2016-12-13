@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{ pageTitle }}</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="format-detection" content="telephone=no,email=no" />
+{{#if (keywords)}}<meta name="Keywords" content="{{ keywords }}" />{{/if}}
+{{#if (description)}}<meta name="Description" content="{{ description }}" />{{/if}}
+<script>var cssFiles = { }, jsFiles = { };</script>
+<!-- JS Hook -->
+{{ js('./bowl') }}
+{{ css('./basic') }}
+<!-- CSS Hook -->
+</head>
+
+<body>
+{{ block('body') }}
+<!-- Modjs Hook -->
+<!-- InlineModjs Hook -->
+{{ block('end') }}
+</body>
+</html>

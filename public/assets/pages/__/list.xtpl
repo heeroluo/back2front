@@ -1,0 +1,5 @@
+{{ css('./list') }}
+<ul id="list">
+	{{ parse('./list-item', list = list) }}
+</ul>
+{{ modjs('./list') }}

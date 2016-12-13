@@ -1,0 +1,3 @@
+{{#each (list)}}
+<li>{{ this }}</li>
+{{/each}}
