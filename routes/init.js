@@ -8,7 +8,15 @@
 var util = require('../lib/util'),
 	routeHelpers = require('./route-helpers'),
 	requireDir = require('require-dir'),
-	routes = requireDir('./pages');
+	routes = requireDir('./pages'),
+	assetConfig;
+
+
+try {
+	assetConfig = require('../assets');
+} catch (e) {
+
+}
 
 
 module.exports = function(express, app) {
@@ -78,7 +86,7 @@ module.exports = function(express, app) {
 				template = ( 'pages/' + (
 					subRoute.template ||
 					(mainPath + '/' + pageName + '/' + pageName)
-				) ).replace(/\/{2,}/, '/') + '.page';
+				) ).replace(/\/{2,}/, '/') + '.page.xtpl';
 			} else {
 				resType = subRoute.resType;
 			}
@@ -94,6 +102,17 @@ module.exports = function(express, app) {
 				}
 				res.routeHelper = new RouteHelper(template);
 				res.routeHelper.viewData('ENV', env);
+
+				var assets = assetConfig.map[template];
+				if (assets) {
+					Object.keys(assets).forEach(function(assetType) {
+						res.routeHelper.viewData(
+							assetType + 'Files',
+							assets[assetType].slice()
+						);
+					});
+				}
+
 				next();
 			});
 
