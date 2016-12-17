@@ -1,6 +1,6 @@
 /*!
  * Bowl.js
- * Javascript module loader for browser - v1.2.0 (2016-12-10T12:03:06Z)
+ * Javascript module loader for browser - v1.2.0 (2016-12-15T08:21:36Z)
  * http://jraiser.org/ | Released under MIT license
  */
 !function(global, undefined) { 'use strict';
@@ -739,22 +739,5 @@ bowljs.config({
 });
 
 log('bowljs(ready)', 'version(' + bowljs.version + ')');
-
-}(window);
-
-
-!function(global) { 'use strict';
-
-global.bowljs.config({
-	basePath: '/assets/',
-	debug: false,
-	map: [
-		function(url) {
-			url.pathname = /\.xtpl(\.js)?$/.test(url.pathname)
-				? url.pathname.replace(/(\.xtpl)$/, '$1.js')
-				: url.pathname.replace(/(?:\.mod)?(\.js)$/, '.mod$1')
-		}
-	]
-});
 
 }(window);

@@ -12,6 +12,7 @@
 <script>var cssFiles = { }, jsFiles = { };</script>
 <!-- JS Hook -->
 {{ js('./bowl') }}
+{{ js('./bowl-config') }}
 {{ css('./basic') }}
 <!-- CSS Hook -->
 </head>
