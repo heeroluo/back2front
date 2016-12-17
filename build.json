@@ -1,0 +1,58 @@
+{
+	"build_to": {
+		"server": "../svn/server/{$env}/{$rev}",
+		"static": "../svn/static/{$env}/back2front/{$rev}/assets"
+	},
+	"static_path": "./public/assets",
+	"static_hosts": {
+		"test": [
+			"s1-test.back2front.tech",
+			"s2-test.back2front.tech",
+			"s3-test.back2front.tech"
+		],
+		"pre": [
+			"s1-pre.back2front.tech",
+			"s2-pre.back2front.tech",
+			"s3-pre.back2front.tech"
+		],
+		"prod": [
+			"s1.back2front.tech",
+			"s2.back2front.tech",
+			"s3.back2front.tech"
+		]
+	},
+	"static_url": "//{$host}/back2front/{$rev}/assets/{$path}",
+	"standalone": [
+		"components/header/**"
+	],
+	"combine": [
+		{
+			"match": "layouts/basic/**/basic.css",
+			"list": [
+				"components/header/**",
+				"components/footer/**"
+			]
+		},
+		{
+			"match": "layouts/basic/**/bowl.js",
+			"list": [
+				"layouts/basic/**/bowl-config.js"
+			]
+		},
+		{
+			"match": "lib/base/**/base.mod.js",
+			"list": [
+				"lib/promise/**",
+				"lib/ajax/**",
+				"lib/dom/**"
+			]
+		},
+		{
+			"match": "common/xtpl/**/xtpl.mod.js",
+			"list": [
+				"common/xtpl/**/*",
+				"lib/xtpl/**/*"
+			]
+		}
+	]
+}
