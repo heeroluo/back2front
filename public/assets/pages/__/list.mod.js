@@ -7,3 +7,8 @@ setTimeout(function() {
 		document.getElementById('list').innerHTML = result;
 	});
 }, 2000);
+
+
+require.async('//res.wx.qq.com/open/js/jweixin-1.0.0.js', function(wx) {
+	console.dir(wx);
+});
