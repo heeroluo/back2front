@@ -13,9 +13,16 @@ var util = require('../lib/util'),
 
 
 try {
-	assetConfig = require('../assets');
+	assetConfig = require('../asset-config');
 } catch (e) {
 
+}
+var assetURLPrefix;
+if (assetConfig) {
+	assetURLPrefix = assetConfig.url_prefix;
+	if (assetURLPrefix[assetURLPrefix.length - 1] !== '/') {
+		assetURLPrefix += '/';
+	}
 }
 
 
@@ -103,14 +110,20 @@ module.exports = function(express, app) {
 				res.routeHelper = new RouteHelper(template);
 				res.routeHelper.viewData('ENV', env);
 
-				var assets = assetConfig.map[template];
-				if (assets) {
-					Object.keys(assets).forEach(function(assetType) {
-						res.routeHelper.viewData(
-							assetType + 'Files',
-							assets[assetType].slice()
-						);
-					});
+				if (assetURLPrefix) {
+					res.routeHelper.viewData('assetURLPrefix', assetURLPrefix);
+				}
+
+				if (assetConfig) {
+					var assets = assetConfig.map[template];
+					if (assets) {
+						Object.keys(assets).forEach(function(assetType) {
+							res.routeHelper.viewData(
+								assetType + 'Files',
+								assets[assetType].slice()
+							);
+						});
+					}
 				}
 
 				next();
