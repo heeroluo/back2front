@@ -35,4 +35,4 @@ jspm_packages
 
 /test.*
 
-/assets.json
+/asset-config.json

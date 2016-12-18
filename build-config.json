@@ -21,7 +21,7 @@
 			"s3.back2front.tech"
 		]
 	},
-	"static_url": "//{$host}/back2front/{$rev}/assets/{$path}",
+	"static_url_prefix": "//{$host}/back2front/{$rev}/assets/",
 	"standalone": [
 		"components/header/**"
 	],
