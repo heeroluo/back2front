@@ -9,17 +9,14 @@ var util = require('../lib/util'),
 	routeHelpers = require('./route-helpers'),
 	requireDir = require('require-dir'),
 	routes = requireDir('./pages'),
-	assetConfig;
-
-
-try {
 	assetConfig = require('../asset-config');
-} catch (e) {
 
-}
+
+// 从配置文件中获取静态资源路径
 var assetURLPrefix;
 if (assetConfig) {
 	assetURLPrefix = assetConfig.url_prefix;
+	// 保证路径末尾是/
 	if (assetURLPrefix[assetURLPrefix.length - 1] !== '/') {
 		assetURLPrefix += '/';
 	}
@@ -108,12 +105,12 @@ module.exports = function(express, app) {
 					RouteHelper = routeHelpers.HTMLRouteHelper;
 				}
 				res.routeHelper = new RouteHelper(template);
-				res.routeHelper.viewData('ENV', env);
+				res.routeHelper.viewData({
+					ENV: env,
+					assetURLPrefix: assetURLPrefix
+				});
 
-				if (assetURLPrefix) {
-					res.routeHelper.viewData('assetURLPrefix', assetURLPrefix);
-				}
-
+				// 把构建后得出的资源列表导进viewData
 				if (assetConfig) {
 					var assets = assetConfig.map[template];
 					if (assets) {
@@ -162,7 +159,7 @@ module.exports = function(express, app) {
 		res.status(err.status);
 
 		try {
-			res.routeHelper.viewData('headerTitle', '温馨提示');
+			res.routeHelper.viewData('title', '温馨提示');
 			res.routeHelper.renderInfo(res, {
 				status: 2,
 				httpStatus: err.status,

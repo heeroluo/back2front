@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>{{ pageTitle }}</title>
+<title>{{ title }}</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -29,7 +29,6 @@
 <script src="{{ this }}"></script>
 {{/each}}
 <!-- Modjs Hook -->
-<!-- InlineModjs Hook -->
 {{ block('end') }}
 </body>
 </html>

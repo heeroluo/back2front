@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
+'use strict';
+
 var config = require('../config');
-var package = require('../package');
 var app = require('../app');
 var http = require('http');
 

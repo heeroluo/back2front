@@ -11,4 +11,7 @@
 
 {{#block ('end')}}
 	{{ css('./__') }}
+	{{#css ()}}
+	body { color: red; }
+	{{/css}}
 {{/block}}
