@@ -34,5 +34,3 @@ jspm_packages
 *.xtpl.js
 
 /test.*
-
-/asset-config.json
