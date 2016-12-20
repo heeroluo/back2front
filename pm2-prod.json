@@ -1,0 +1,10 @@
+{
+	"name": "back2front",
+	"script": "bin/www",
+	"log_date_format": "YYYY-MM-DD HH:mm:ss Z",
+	"exec_mode": "cluster",
+	"instances": 2,
+	"combine_logs": true,
+	"error_file": "logs/stderr.log",
+	"out_file": "logs/stdout.log"
+}
