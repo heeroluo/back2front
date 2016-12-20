@@ -1,9 +1,28 @@
 {
   "name": "back2front",
   "version": "1.0.0",
-  "private": true,
+  "description": "Frontend fully modular development framework",
+  "keywords": [
+    "back2front",
+    "componentization",
+    "modular"
+  ],
+  "homepage": "https://github.com/heeroluo/back2front#readme",
+  "bugs": {
+    "url": "https://github.com/heeroluo/back2front/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Heero.Luo",
+    "email": "heeroluo@126.com",
+    "url": "http://heeroluo.net/"
+  },
   "scripts": {
     "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heeroluo/back2front.git"
   },
   "dependencies": {
     "body-parser": "~1.15.2",
@@ -13,5 +32,8 @@
     "require-dir": "^0.3.1",
     "serve-favicon": "~2.3.0",
     "xtemplate": "~4.6.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
