@@ -13,13 +13,11 @@ var util = require('../lib/util'),
 
 
 // 从配置文件中获取静态资源路径
-var assetURLPrefix;
-if (assetConfig) {
-	assetURLPrefix = assetConfig.url_prefix;
-	// 保证路径末尾是/
-	if (assetURLPrefix[assetURLPrefix.length - 1] !== '/') {
-		assetURLPrefix += '/';
-	}
+// 从配置文件中获取静态资源路径
+var assetURLPrefix = assetConfig ? assetConfig.url_prefix : '';
+// 保证路径末尾是/
+if (assetURLPrefix[assetURLPrefix.length - 1] !== '/') {
+	assetURLPrefix += '/';
 }
 
 
