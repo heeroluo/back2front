@@ -12,15 +12,6 @@ var util = require('../lib/util'),
 	assetConfig = require('../asset-config');
 
 
-// 从配置文件中获取静态资源路径
-// 从配置文件中获取静态资源路径
-var assetURLPrefix = assetConfig ? assetConfig.url_prefix : '';
-// 保证路径末尾是/
-if (assetURLPrefix[assetURLPrefix.length - 1] !== '/') {
-	assetURLPrefix += '/';
-}
-
-
 module.exports = function(express, app) {
 	var env = app.get('env');
 
@@ -105,7 +96,7 @@ module.exports = function(express, app) {
 				res.routeHelper = new RouteHelper(template);
 				res.routeHelper.viewData({
 					ENV: env,
-					assetURLPrefix: assetURLPrefix
+					currentYear: (new Date).getFullYear()
 				});
 
 				// 把构建后得出的资源列表导进viewData
