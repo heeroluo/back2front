@@ -9,10 +9,31 @@ global.bowljs.config({
 				return;
 			}
 
-			url.pathname = /\.xtpl(\.js)?$/.test(url.pathname)
-				? url.pathname.replace(/(\.xtpl)$/, '$1.js')
-				: url.pathname.replace(/(?:\.mod)?(\.js)$/, '.mod$1')
+			var extname;
+			url.pathname = url.pathname.replace( /(\.\w+)+$/, function(match) {
+				extname = match;
+				return '';
+			})
+
+			switch (extname) {
+				case '.preload':
+					extname = '.js';
+					break;
+
+				case '.xtpl':
+					extname = '.xtpl.js';
+					break;
+
+				default:
+					extname = '.mod.js';
+			}
+			url.pathname += extname;
 		}
+	],
+	preload: [
+		Function.prototype.bind ? '' : 'layouts/basic/1.0/es5-shim.preload',
+		window.JSON ? '' : 'layouts/basic/1.0/json2.preload',
+		window.localStorage ? '' : 'layouts/basic/1.0/localstorage.preload'
 	]
 });
 

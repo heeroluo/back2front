@@ -24,7 +24,7 @@ var commands = {
     }
     return ret;
   },
-  void: function _void() {
+  'void': function _void() {
     return undefined;
   },
   foreach: function foreach(scope, option, buffer_) {
@@ -267,7 +267,7 @@ var commands = {
   }
 };
 
-commands.debugger = function debuggerFn() {
+commands['debugger'] = function debuggerFn() {
   util.globalEval('debugger');
 };
 

@@ -1,7 +1,7 @@
-var XTpl = require('common/xtpl@1.0');
+var xTpl = require('common/xtpl@1.0');
 
 setTimeout(function() {
-	XTpl.render(require.resolve('./list-item.xtpl'), {
+	xTpl.render(require.resolve('./list-item'), {
 		list: ['a', 'b', 'c', 'd']
 	}).then(function(result) {
 		document.getElementById('list').innerHTML = result;
@@ -10,5 +10,5 @@ setTimeout(function() {
 
 
 require.async('//res.wx.qq.com/open/js/jweixin-1.0.0.js', function(wx) {
-	console.dir(wx);
+	alert('wx');
 });

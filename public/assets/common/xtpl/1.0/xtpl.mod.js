@@ -6,9 +6,13 @@ var Promise = require('lib/promise@1.0'),
 module.exports = xTpl.createWrapper({
 	loadTpl: function(tplPath) {
 		return new Promise(function(resolve, reject) {
-			require.async(tplPath, function(tpl) {
-				resolve(tpl);
-			});
+			var extname = '.xtpl'
+			if ( !/\.\w+$/.test(tplPath) ) {
+				tplPath += extname;
+			} else {
+				tplPath = tplPath.replace(/\.mod\.js$/, extname);
+			}
+			resolve( require(tplPath) );
 		});
 	},
 	commands: commands

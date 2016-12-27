@@ -1,1 +1,1 @@
-console.log('header');
+alert('header');

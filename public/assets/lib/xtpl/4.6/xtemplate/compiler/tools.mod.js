@@ -7,7 +7,7 @@ var doubleReg = /\\*"/g;
 var singleReg = /\\*'/g;
 var arrayPush = [].push;
 var globals = {};
-globals.undefined = globals.null = globals.true = globals.false = 1;
+globals['undefined'] = globals['null'] = globals['true'] = globals['false'] = 1;
 
 function genStackJudge(parts, data) {
   var count = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
