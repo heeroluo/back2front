@@ -1,17 +1,15 @@
-{{ extend('layouts/normal/1.0/normal') }}
+{{ extend('layouts/basic/1.0/basic') }}
 
-{{#block ('main')}}
-	{{#modjs ('lib/base@1.1', 'lib/promise@1.0')}}
-	function(base) {
-		alert('base');
-	}
-	{{/modjs}}
-	{{ parse('./list', list = list) }}
-{{/block}}
-
-{{#block ('end')}}
-	{{ css('./__') }}
-	{{#css ()}}
-	body { color: red; }
-	{{/css}}
+{{#block ('body')}}
+{{ css('./__') }}
+<h1>{{ title }}</h1>
+<p>{{ content }}</p>
+<div class="example">
+	<h2 class="example__title">Examples:</h2>
+	<ul class="example__list">
+		<li><a href="/example/list-ssr">List (server side rendering)</a></li>
+		<li><a href="/example/list-ssr-and-csr">List (server side rendering &amp; client side rendering)</a></li>
+		<li><a href="/example/list-csr">List (client side rendering)</a></li>
+	</ul>
+</div>
 {{/block}}

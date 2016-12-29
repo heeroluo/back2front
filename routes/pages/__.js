@@ -1,8 +1,5 @@
-exports['/'] = function(req, res) {
-	res.routeHelper.viewData('list', [
-		'111',
-		'222',
-		'333',
-		'444'
-	]);
-};
+var pageType = require('../page-type');
+
+exports['/'] = pageType.basic(function(req, res) {
+	res.routeHelper.viewData('content', 'Hello world');
+});

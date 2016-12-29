@@ -1,5 +1,0 @@
-{{ css('./list') }}
-<ul id="list">
-	{{ parse('./list-item?csrOnly', list = list) }}
-</ul>
-{{ modjs('./list') }}

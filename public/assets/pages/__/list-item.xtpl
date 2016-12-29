@@ -1,3 +1,0 @@
-{{#each (list)}}
-<li>{{ include('./list-item-inner') }}</li>
-{{/each}}

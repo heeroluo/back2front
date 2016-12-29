@@ -1,2 +1,2 @@
 {{ css('./footer') }}
-<div id="footer"></div>
+<div class="footer">Copyright &copy; {{ currentYear }} Back2Front</div>

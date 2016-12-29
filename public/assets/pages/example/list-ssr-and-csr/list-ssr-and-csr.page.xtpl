@@ -1,0 +1,41 @@
+{{ extend('layouts/normal/1.0/normal') }}
+
+{{#block ('main')}}
+{{#css ()}}
+.button {
+	display: block;
+	width: 90px;
+	height: 36px;
+	line-height: 36px;
+	margin-top: 30px;
+	border-radius: 10px;
+	background: #0096ff;
+	font-size: 14px;
+	text-align: center;
+	color: #fff;
+	cursor: pointer;
+}
+{{/css}}
+<div id="list-outer">
+{{ parse('components/list/1.0/list?csr', list = list) }}
+</div>
+<span id="change" class="button">Change</span>
+{{#modjs ('common/xtpl@1.0')}}
+function(xTpl) {
+	document.getElementById('change').onclick = function() {
+		var self = this;
+		xTpl.render('components/list/1.0/list', {
+			list: [
+				'Item 1',
+				'Item 2',
+				'Item 3',
+				'Item 4'
+			]
+		}).then(function(result) {
+			document.getElementById('list-outer').innerHTML = result;
+			self.parentNode.removeChild(self);
+		});
+	};
+}
+{{/modjs}}
+{{/block}}

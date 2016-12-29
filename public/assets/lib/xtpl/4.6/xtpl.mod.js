@@ -49,7 +49,7 @@ exports.createWrapper = function(options) {
 					instanceCache[tplPath] = new XTemplate(tpl, {
 						name: tplPath,
 						loader: loader,
-						commands: options
+						commands: commands
 					});
 					resolve(instanceCache[tplPath]);
 				});

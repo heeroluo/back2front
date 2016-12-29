@@ -1,0 +1,9 @@
+{{ css('./list') }}
+
+{{#if (list && list.length)}}
+<ul class="list">
+	{{#each (list)}}
+	{{ include('./list-item') }}
+	{{/each}}
+</ul>
+{{/if}}

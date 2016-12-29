@@ -9,7 +9,7 @@ global.bowljs.config({
 				return;
 			}
 
-			var extname;
+			var extname = '';
 			url.pathname = url.pathname.replace( /(\.\w+)+$/, function(match) {
 				extname = match;
 				return '';
@@ -24,8 +24,9 @@ global.bowljs.config({
 					extname = '.xtpl.js';
 					break;
 
-				default:
+				case '.js':
 					extname = '.mod.js';
+					break;
 			}
 			url.pathname += extname;
 		}

@@ -1,4 +1,1 @@
-#header {
-	height: 100px;
-	background: #ccc url('http://www.cnbeta.com/assets/default/images/common/head.png');
-}
+.header { padding-bottom: 50px; }
