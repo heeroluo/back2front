@@ -10,12 +10,12 @@
 {{#if (keywords)}}<meta name="Keywords" content="{{ keywords }}" />{{/if}}
 {{#if (description)}}<meta name="Description" content="{{ description }}" />{{/if}}
 <script>var cssFiles = { }, jsFiles = { };</script>
-{{ js('./bowl') }}
-{{ js('./bowl-config') }}
-{{#each (jsFiles)}}
+{{ headjs('./bowl') }}
+{{ headjs('./bowl-config') }}
+{{#each (headjsFiles)}}
 <script src="{{ this }}"></script>
 {{/each}}
-<!-- JS Hook -->
+<!-- Headjs Hook -->
 {{ css('./basic') }}
 {{#each (cssFiles)}}
 <script src="{{ this }}"></script>
@@ -27,6 +27,11 @@
 <div class="container">
 {{ block('body') }}
 </div>
+{{ js('./end') }}
+{{#each (jsFiles)}}
+<script src="{{ this }}"></script>
+{{/each}}
+<!-- JS Hook -->
 {{#each (modjsFiles)}}
 <script src="{{ this }}"></script>
 {{/each}}
