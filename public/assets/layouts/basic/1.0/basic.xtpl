@@ -27,7 +27,6 @@
 <div class="container">
 {{ block('body') }}
 </div>
-{{ js('./end') }}
 {{#each (jsFiles)}}
 <script src="{{ this }}"></script>
 {{/each}}
