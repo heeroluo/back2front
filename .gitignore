@@ -15,3 +15,6 @@ jspm_packages
 
 # Test files
 /test.*
+
+# VSCode files
+.vscode
