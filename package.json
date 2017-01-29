@@ -25,13 +25,13 @@
     "url": "https://github.com/heeroluo/back2front.git"
   },
   "dependencies": {
-    "body-parser": "~1.15.2",
+    "body-parser": "~1.16.0",
     "cookie-parser": "~1.4.3",
     "escape-html": "^1.0.3",
     "express": "~4.14.0",
     "morgan": "~1.7.0",
     "require-dir": "^0.3.1",
-    "serve-favicon": "~2.3.0",
+    "serve-favicon": "~2.3.2",
     "xtemplate": "~4.6.0"
   },
   "engines": {
