@@ -150,7 +150,7 @@ exports.HTMLRouteHelper = util.createClass(function(template) {
 			status: 1
 		}, info);
 		this.viewData('info', info);
-		this.setTemplate('pages/~info/~info');
+		this.setTemplate('pages/~info/~info.page');
 		this.render(res);
 	}
 }, BasicRouteHelper);
