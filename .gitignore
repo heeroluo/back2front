@@ -9,12 +9,12 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
+# VSCode directory
+.vscode
+
 # Temporary files
 *.mod.defined.js
 *.xtpl.js
 
 # Test files
 /test.*
-
-# VSCode files
-.vscode
