@@ -1,0 +1,41 @@
+{
+	"build_to": {
+		"server": "../svn/server/{$env}/{$rev}",
+		"static": "../svn/server/{$env}/{$rev}/~public/assets/{$rev}"
+	},
+	"static_path": "./public/assets",
+	"static_url_prefix": "/assets/{$rev}/",
+	"standalone": [
+		"components/header/**"
+	],
+	"combine": [
+		{
+			"match": "layouts/basic/**/basic.css",
+			"list": [
+				"components/header/**",
+				"components/footer/**"
+			]
+		},
+		{
+			"match": "layouts/basic/**/bowl.js",
+			"list": [
+				"layouts/basic/**/bowl-config.js"
+			]
+		},
+		{
+			"match": "lib/base/**/base.mod.js",
+			"list": [
+				"lib/promise/**",
+				"lib/ajax/**",
+				"lib/dom/**"
+			]
+		},
+		{
+			"match": "common/xtpl/**/xtpl.mod.js",
+			"list": [
+				"common/xtpl/**/*",
+				"lib/xtpl/**/*"
+			]
+		}
+	]
+}
