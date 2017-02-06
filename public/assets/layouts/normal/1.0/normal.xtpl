@@ -6,4 +6,6 @@
 		{{ block('main') }}
 	</div>
 	{{ include('components/footer/1.0/footer') }}
+	{{ js('./normal1') }}
+	{{ js('./normal2') }}
 {{/block}}

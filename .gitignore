@@ -13,7 +13,7 @@ jspm_packages
 .vscode
 
 # Temporary files
-*.mod.defined.js
+*.defined.js
 *.xtpl.js
 
 # Test files

@@ -17,15 +17,11 @@ global.bowljs.config({
 
 			switch (extname) {
 				case '.preload':
-					extname = '.js';
+					extname = '.raw.js';
 					break;
 
 				case '.xtpl':
 					extname = '.xtpl.js';
-					break;
-
-				case '.js':
-					extname = '.mod.js';
 					break;
 			}
 			url.pathname += extname;

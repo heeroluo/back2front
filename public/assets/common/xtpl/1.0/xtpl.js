@@ -10,7 +10,7 @@ module.exports = xTpl.createWrapper({
 			if ( !/\.\w+$/.test(tplPath) ) {
 				tplPath += extname;
 			} else {
-				tplPath = tplPath.replace(/\.mod\.js$/, extname);
+				tplPath = tplPath.replace(/\.js$/, extname);
 			}
 			resolve( require(tplPath) );
 		});
