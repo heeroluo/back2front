@@ -1,4 +1,4 @@
-{{ extend('layouts/basic/1.0/basic') }}
+{{ extend('layouts/root/1.0/root') }}
 
 {{#block ('body')}}
 {{ css('./__') }}

@@ -16,7 +16,7 @@
 <script src="{{ this }}"></script>
 {{/each}}
 <!-- Headjs Hook -->
-{{ css('./basic') }}
+{{ css('./root') }}
 {{#each (cssFiles)}}
 <script src="{{ this }}"></script>
 {{/each}}
@@ -24,9 +24,7 @@
 </head>
 
 <body>
-<div class="container">
 {{ block('body') }}
-</div>
 {{#each (jsFiles)}}
 <script src="{{ this }}"></script>
 {{/each}}

@@ -1,1 +1,0 @@
-document.write('<span style="display: none;">normal1</span>');

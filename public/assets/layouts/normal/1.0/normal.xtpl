@@ -1,11 +1,11 @@
-{{ extend('layouts/basic/1.0/basic') }}
+{{ extend('layouts/root/1.0/root') }}
 
 {{#block ('body')}}
-	{{ include('components/header/1.0/header') }}
-	<div class="main">
-		{{ block('main') }}
+	<div class="container">
+		{{ include('components/header/1.0/header') }}
+		<div class="main">
+			{{ block('main') }}
+		</div>
+		{{ include('components/footer/1.0/footer') }}
 	</div>
-	{{ include('components/footer/1.0/footer') }}
-	{{ js('./normal1') }}
-	{{ js('./normal2') }}
 {{/block}}
