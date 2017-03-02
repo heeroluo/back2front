@@ -3,6 +3,11 @@
 global.bowljs.config({
 	basePath: '/assets/',
 	debug: false,
+	preload: [
+		Function.prototype.bind ? '' : 'lib/compatibility/es5-shim.preload',
+		window.JSON ? '' : 'lib/compatibility/json2.preload',
+		window.localStorage ? '' : 'lib/compatibility/localstorage.preload'
+	],
 	map: [
 		function(url) {
 			if ( /\.qq\.com$/.test(url.hostname) ) {
@@ -26,11 +31,6 @@ global.bowljs.config({
 			}
 			url.pathname += extname;
 		}
-	],
-	preload: [
-		Function.prototype.bind ? '' : 'layouts/basic/1.0/es5-shim.preload',
-		window.JSON ? '' : 'layouts/basic/1.0/json2.preload',
-		window.localStorage ? '' : 'layouts/basic/1.0/localstorage.preload'
 	]
 });
 
