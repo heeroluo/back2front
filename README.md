@@ -21,6 +21,7 @@ function($) {
 	$('#header').text('I am header');
 }
 {{/modjs}}
+```
 
 也可以通过外链的方式引用CSS、Javascript代码：
 
@@ -28,3 +29,6 @@ function($) {
 <header id="header" class="header"></header>
 {{ css('./header') }}
 {{ modjs('./header') }}
+```
+
+从而达到把HTML、CSS和Javascript封装为一个模块的目的。
