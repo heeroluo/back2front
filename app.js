@@ -30,9 +30,6 @@ app.use('/favicon.ico', function(req, res) {
 });
 
 app.use( logger('dev') );
-app.use( bodyParser.json() );
-app.use( bodyParser.urlencoded({ extended: false }) );
-app.use( cookieParser() );
 
 // 静态文件
 var assetConfig = require('./asset-config');
@@ -52,6 +49,10 @@ if (assetConfig == null || appConfig.isStaticServer) {
 	// 处理静态文件的中间件
 	app.use( express.static(staticPath, appConfig.static) );
 }
+
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded({ extended: false }) );
+app.use( cookieParser() );
 
 // 初始化路由
 require('./routes/init')(express, app);
