@@ -56,3 +56,15 @@ exports.resolvePath = (function() {
 exports.jsonEncode = function(scope, option) {
 	return JSON.stringify(option.params[0]);
 };
+
+// 换行符转为 <br />
+exports.nl2br = function(scope, option) {
+	return String(option.params[0]).replace(/\r?\n/g, '<br />');
+};
+
+// 把空白替换成 &nbsp;
+exports.space2nbsp = function(scope, option) {
+	return toString(option.params[0]).replace(/\s{2,}/g, function(match) {
+		return new Array(match.length + 1).join('&nbsp;');
+	});
+};
