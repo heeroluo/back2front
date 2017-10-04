@@ -1,10 +1,10 @@
 {
 	"build_to": {
 		"server": "../svn/server/{$env}/{$rev}",
-		"static": "../svn/server/{$env}/{$rev}/~public/assets/{$rev}"
+		"static": "../svn/server/{$env}/{$rev}/~public/assets"
 	},
 	"static_path": "./public/assets",
-	"static_url_prefix": "/assets/{$rev}/",
+	"static_url_prefix": "/assets/",
 	"standalone": [
 		"components/header/**"
 	],

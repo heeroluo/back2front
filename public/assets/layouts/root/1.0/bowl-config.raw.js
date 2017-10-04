@@ -1,37 +1,37 @@
-!function(global) { 'use strict';
+!function(global) {
+	'use strict';
 
-global.bowljs.config({
-	basePath: '/assets/',
-	debug: false,
-	preload: [
-		Function.prototype.bind ? '' : 'lib/compatibility/es5-shim.preload',
-		window.JSON ? '' : 'lib/compatibility/json2.preload',
-		window.localStorage ? '' : 'lib/compatibility/localstorage.preload'
-	],
-	map: [
-		function(url) {
-			if ( /\.qq\.com$/.test(url.hostname) ) {
-				return;
+	var md5Map = global.md5Map;
+
+	global.bowljs.config({
+		basePath: global.ASSET_URL_PREFIX || '/assets/',
+		debug: false,
+		preload: [
+			Function.prototype.bind ? '' : 'lib/compatibility/es5-shim.raw.js',
+			window.JSON ? '' : 'lib/compatibility/json2.raw.js',
+			window.localStorage ? '' : 'lib/compatibility/localstorage.raw.js'
+		],
+		map: [
+			function(url) {
+				url.pathname = url.pathname.replace(/\.xtpl$/i, function() {
+					return '.xtpl.js';
+				});
+
+				if (md5Map && /\.raw\.js$/.test(url.pathname)) {
+					url.pathname = url.pathname.replace(
+						/(\/assets\/)(.+)$/,
+						function(wholePath, assetsDirname, restPath) {
+							if (md5Map[restPath]) {
+								return assetsDirname + restPath.replace(/\.\w+$/, function(extName) {
+									return '.' + md5Map[restPath] + extName;
+								});
+							} else {
+								return wholePath;
+							}
+						}
+					);
+				}
 			}
-
-			var extname = '';
-			url.pathname = url.pathname.replace( /(\.\w+)+$/, function(match) {
-				extname = match;
-				return '';
-			})
-
-			switch (extname) {
-				case '.preload':
-					extname = '.raw.js';
-					break;
-
-				case '.xtpl':
-					extname = '.xtpl.js';
-					break;
-			}
-			url.pathname += extname;
-		}
-	]
-});
-
+		]
+	});
 }(window);

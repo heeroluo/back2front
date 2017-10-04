@@ -24,7 +24,7 @@
 function(xTpl) {
 	document.getElementById('change').onclick = function() {
 		var self = this;
-		xTpl.render('components/list/1.0/list', {
+		xTpl.render('components/list/1.0/list.xtpl', {
 			list: [
 				'Item 1',
 				'Item 2',

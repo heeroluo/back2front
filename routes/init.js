@@ -8,8 +8,7 @@
 var util = require('../lib/util'),
 	routeHelpers = require('./route-helpers'),
 	requireDir = require('require-dir'),
-	routes = requireDir('./pages'),
-	assetConfig = require('../asset-config');
+	routes = requireDir('./pages');
 
 
 module.exports = function(express, app) {
@@ -57,12 +56,12 @@ module.exports = function(express, app) {
 		}
 
 		util.each(subRoutes, function(subRoute, subPath) {
-			if ( typeof subRoute === 'function' || Array.isArray(subRoute) ) {
+			if (typeof subRoute === 'function' || Array.isArray(subRoute)) {
 				subRoute = { callbacks: subRoute };
 			} else {
 				subRoute = util.extend({ }, subRoute);
 			}
-			if ( !Array.isArray(subRoute.callbacks) ) {
+			if (!Array.isArray(subRoute.callbacks)) {
 				subRoute.callbacks = [subRoute.callbacks];
 			}
 			// 增加对Promise实例的包装处理
@@ -98,19 +97,6 @@ module.exports = function(express, app) {
 					ENV: env,
 					currentYear: (new Date).getFullYear()
 				});
-
-				// 把构建后得出的资源列表导进viewData
-				if (assetConfig) {
-					var assets = assetConfig.map[template];
-					if (assets) {
-						Object.keys(assets).forEach(function(assetType) {
-							res.routeHelper.viewData(
-								assetType + 'Files',
-								assets[assetType].slice()
-							);
-						});
-					}
-				}
 
 				next();
 			});

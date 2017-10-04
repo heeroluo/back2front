@@ -1,7 +1,7 @@
 {
 	"build_to": {
-		"server": "../svn/server/{$env}/{$rev}",
-		"static": "../svn/static/{$env}/back2front/{$rev}/assets"
+		"server": "../dist/server/{$env}/{$rev}",
+		"static": "../dist/static/{$env}/back2front/assets"
 	},
 	"static_path": "./public/assets",
 	"static_hosts": {
@@ -21,7 +21,7 @@
 			"s3.back2front.tech"
 		]
 	},
-	"static_url_prefix": "//{$host}/back2front/{$rev}/assets/",
+	"static_url_prefix": "//{$host}/back2front/assets/",
 	"standalone": [
 		"components/header/**"
 	],
