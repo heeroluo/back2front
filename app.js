@@ -44,7 +44,7 @@ if (assetConfig == null || appConfig.isStaticServer) {
 	);
 	// 开发环境才需要处理特殊静态资源的中间件
 	if (assetConfig == null) {
-		app.use( require('./lib/assert-handler')(staticPath) );
+		app.use( require('./lib/assets-handler')(staticPath) );
 	}
 	// 处理静态文件的中间件
 	app.use( express.static(staticPath, appConfig.static) );
