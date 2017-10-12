@@ -1,3 +1,6 @@
+var util = require('../../util/1.0/util');
+
+
 // 浏览器端无需处理引入静态资源的逻辑，直接输出空白即可
 exports.css =
 exports.js =
@@ -7,23 +10,34 @@ exports.modjs = function(scope, option, buffer) {
 };
 
 
+// MD5资源映射表，通过外部js文件（md5-map）引入
+var md5Map;
+try {
+	md5Map = window.md5Map;
+} catch (e) {
+
+}
+md5Map = md5Map || {};
+
+// 静态资源URL前缀，在root模板中输出为全局变量
+var assetURLPrefix;
+try {
+	assetURLPrefix = util.toURL(window.ASSET_URL_PREFIX);
+} catch (e) {
+
+}
+assetURLPrefix = assetURLPrefix || '/';
+if (assetURLPrefix.charAt(assetURLPrefix.length - 1) !== '/') {
+	assetURLPrefix += '/';
+}
+
 // 解析静态资源路径
 exports.resolvePath = (function() {
-	// 静态资源URL前缀，在root模板中输出为全局变量
-	var assetURLPrefix = '';
-	try {
-		assetURLPrefix = window.ASSET_URL_PREFIX;
-	} catch (e) {
-
-	}
-	if (assetURLPrefix.charAt(assetURLPrefix.length - 1) !== '/') {
-		assetURLPrefix += '/';
-	}
-
+	var reIsURL = /^(?:[a-z]+:)?\/\//;
+	
 	return function(scope, option) {
 		var assetPath = option.params[0], result;
-
-		if ( /^\./.test(assetPath) ) {
+		if (/^\./.test(assetPath)) {
 			result = this.name.split('/');
 			// 解析相对路径，先拿掉最后的文件名
 			result.pop();
@@ -47,7 +61,16 @@ exports.resolvePath = (function() {
 			result = assetPath;
 		}
 
-		return assetURLPrefix + result.join('/');
+		result = result.join('/').replace(assetURLPrefix, '');
+
+		if (reIsURL.test(result)) {
+			return result;
+		} else {
+			result = result.replace(/^\//, '');
+			return assetURLPrefix + result.replace(/\.\w+$/, function(match) {
+				return md5Map[result] ? ('.' + md5Map[result] + match) : match;
+			});
+		}
 	};
 })();
 
