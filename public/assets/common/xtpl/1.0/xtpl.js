@@ -1,10 +1,10 @@
-var Promise = require('lib/promise@1.0'),
-	xTpl = require('lib/xtpl@4.6'),
-	commands = require('./commands');
+const Promise = require('lib/promise@1.0');
+const xTpl = require('lib/xtpl@4.6');
+const commands = require('./commands');
 
 
 module.exports = xTpl.createWrapper({
-	loadTpl: function(tplPath) {
+	loadTpl(tplPath) {
 		if (!/\.\w+$/.test(tplPath)) {
 			tplPath += '.xtpl';
 		}
@@ -12,5 +12,5 @@ module.exports = xTpl.createWrapper({
 			resolve(require(tplPath));
 		});
 	},
-	commands: commands
+	commands
 });

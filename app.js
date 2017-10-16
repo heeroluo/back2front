@@ -29,7 +29,7 @@ app.use('/favicon.ico', function(req, res) {
 	res.end();
 });
 
-app.use( logger('dev') );
+app.use(logger('dev'));
 
 // 静态文件
 var assetConfig = require('./asset-config');
@@ -44,15 +44,15 @@ if (assetConfig == null || appConfig.isStaticServer) {
 	);
 	// 开发环境才需要处理特殊静态资源的中间件
 	if (assetConfig == null) {
-		app.use( require('./lib/assets-handler')(staticPath) );
+		app.use(require('./lib/assets-handler')(staticPath));
 	}
 	// 处理静态文件的中间件
-	app.use( express.static(staticPath, appConfig.static) );
+	app.use(express.static(staticPath, appConfig.static));
 }
 
-app.use( bodyParser.json() );
-app.use( bodyParser.urlencoded({ extended: false }) );
-app.use( cookieParser() );
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // 初始化路由
 require('./routes/init')(express, app);

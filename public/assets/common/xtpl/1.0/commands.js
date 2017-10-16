@@ -4,7 +4,7 @@ var util = require('../../util/1.0/util');
 // 浏览器端无需处理引入静态资源的逻辑，直接输出空白即可
 exports.css =
 exports.js =
-exports.modjs = function(scope, option, buffer) {
+exports.modjs = (scope, option, buffer) => {
 	var empty = '';
 	return option.fn ?  buffer.write(empty) : empty;
 };
@@ -76,17 +76,17 @@ exports.resolvePath = (function() {
 
 
 // JSON序列化
-exports.jsonEncode = function(scope, option) {
+exports.jsonEncode = (scope, option) => {
 	return JSON.stringify(option.params[0]);
 };
 
 // 换行符转为 <br />
-exports.nl2br = function(scope, option) {
+exports.nl2br = (scope, option) => {
 	return String(option.params[0]).replace(/\r?\n/g, '<br />');
 };
 
 // 把空白替换成 &nbsp;
-exports.space2nbsp = function(scope, option) {
+exports.space2nbsp = (scope, option) => {
 	return toString(option.params[0]).replace(/\s{2,}/g, function(match) {
 		return new Array(match.length + 1).join('&nbsp;');
 	});
