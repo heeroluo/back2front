@@ -13,8 +13,7 @@ jspm_packages
 .vscode
 
 # Temporary files
-*.defined.js
-*.xtpl.js
+/public/~assets/*
 
 # Test files
 /test.*

@@ -18,6 +18,27 @@ server.listen(config.port);
 server.on('error', onError);
 server.on('listening', onListening);
 
+// 清理垃圾文件
+if (app.get('env') === 'development') {
+	// Prevents the program from closing instantly
+	process.stdin.resume();
+
+	var fse = require('fs-extra');
+	var path = require('path');
+
+	function cleanup() {
+		var basePath = path.join(__dirname, '../public');
+		fse.readdirSync(basePath).forEach(function(p) {
+			if (p[0] === '~') {
+				fse.removeSync(path.join(basePath, p));
+			}
+		});
+		process.exit();
+	}
+
+	process.on('SIGINT', cleanup);
+}
+
 // Event listener for HTTP server "error" event.
 function onError(error) {
 	if (error.syscall !== 'listen') { throw error; }
