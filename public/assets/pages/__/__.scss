@@ -8,14 +8,17 @@ p { line-height: 1.3; }
 
 .example {
 	margin-top: 50px;
-}
-.example__title {
-	font-size: 24px;
-}
-.example__list {
-	margin-left: 1.5em;
-	line-height: 1.3;
-}
-.example__list li {
-	margin-top: 8px;
+
+	&__title {
+		font-size: 24px;
+	}
+
+	&__list {
+		margin-left: 1.5em;
+		line-height: 1.3;
+
+		li {
+			margin-top: 8px;
+		}
+	}
 }

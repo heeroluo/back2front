@@ -143,7 +143,7 @@ module.exports = function(express, app) {
 			});
 		} catch (e) {
 			res.end();
-			throw e;
+			throw err;
 		}
 	});
 };

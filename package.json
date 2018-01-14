@@ -1,6 +1,6 @@
 {
   "name": "back2front",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Frontend fully modular development framework",
   "keywords": [
     "back2front",
@@ -31,7 +31,8 @@
     "express": "~4.16.2",
     "fs-extra": "^4.0.2",
     "morgan": "~1.9.0",
-    "require-dir": "^0.3.1",
+    "request": "^2.83.0",
+    "require-dir": "^0.3.2",
     "serve-favicon": "~2.4.5",
     "xtemplate": "~4.6.0"
   },
@@ -39,8 +40,19 @@
     "node": ">=6.5.0"
   },
   "devDependencies": {
+    "autoprefixer": "^7.1.6",
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.0",
-    "babel-preset-stage-2": "^6.24.1"
-  }
+    "babel-preset-stage-2": "^6.24.1",
+    "back2front-cli": "^2.2.2",
+    "postcss": "^6.0.14",
+    "postcss-load-config": "^1.2.0",
+    "postcss-px2rem": "^0.3.0",
+    "precss": "^2.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 20 versions",
+    "not ie <= 8"
+  ]
 }

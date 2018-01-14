@@ -2,50 +2,25 @@
 
 'use strict';
 
-var config = require('../config');
-var app = require('../app');
-var http = require('http');
+const config = require('../config');
+const app = require('../app');
+const http = require('http');
 
 
 // Get port from environment and store in Express.
 app.set('port', config.port);
 
 // Create HTTP server.
-var server = http.createServer(app);
+const server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
 server.listen(config.port);
-server.on('error', onError);
-server.on('listening', onListening);
-
-// 清理垃圾文件
-if (app.get('env') === 'development') {
-	// Prevents the program from closing instantly
-	process.stdin.resume();
-
-	var fse = require('fs-extra');
-	var path = require('path');
-
-	function cleanup() {
-		var basePath = path.join(__dirname, '../public');
-		fse.readdirSync(basePath).forEach(function(p) {
-			if (p[0] === '~') {
-				fse.removeSync(path.join(basePath, p));
-			}
-		});
-		process.exit();
-	}
-
-	process.on('SIGINT', cleanup);
-}
-
-// Event listener for HTTP server "error" event.
-function onError(error) {
+server.on('error', (error) => {
 	if (error.syscall !== 'listen') { throw error; }
 
-	var bind = typeof config.port === 'string'
-		? 'Pipe ' + config.port
-		: 'Port ' + config.port;
+	let bind = typeof config.port === 'string' ?
+		'Pipe ' + config.port :
+		'Port ' + config.port;
 
 	// handle specific listen errors with friendly messages
 	switch (error.code) {
@@ -60,14 +35,31 @@ function onError(error) {
 		default:
 			throw error;
 	}
-}
-
-// Event listener for HTTP server "listening" event.
-function onListening() {
-	var addr = server.address();
-	var bind = typeof addr === 'string'
-		? 'pipe ' + addr
-		: 'port ' + addr.port;
+});
+server.on('listening', () => {
+	let addr = server.address();
+	let bind = typeof addr === 'string' ?
+		'pipe ' + addr :
+		'port ' + addr.port;
 
 	console.log('Listening on ' + bind);
+});
+
+// Delete temporary folder on closing
+if (app.get('env') === 'development') {
+	// Prevent the program from closing instantly
+	process.stdin.resume();
+
+	const fse = require('fs-extra');
+	const path = require('path');
+
+	process.on('SIGINT', () => {
+		let basePath = path.join(__dirname, '../public');
+		fse.readdirSync(basePath).forEach((p) => {
+			if (p[0] === '~') {
+				fse.removeSync(path.join(basePath, p));
+			}
+		});
+		process.exit();
+	});
 }

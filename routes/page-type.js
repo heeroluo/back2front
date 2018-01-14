@@ -2,12 +2,12 @@
 
 
 function prependTo(elt, target) {
-	if ( Array.isArray(target) ) {
+	if (Array.isArray(target)) {
 		target = target.slice();
 	} else if (target) {
 		target = [target];
 	} else {
-		target = [ ];
+		target = [];
 	}
 
 	if (elt) { target.unshift(elt); }
@@ -16,8 +16,8 @@ function prependTo(elt, target) {
 }
 
 
-exports.basic = function(callbacks) {
-	return prependTo(function(req, res) {
+exports.basic = (callbacks) => {
+	return prependTo((req, res) => {
 		res.routeHelper.viewData('title', 'Back2Front');
 	}, callbacks);
 };

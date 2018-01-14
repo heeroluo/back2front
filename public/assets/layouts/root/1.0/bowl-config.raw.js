@@ -13,9 +13,9 @@
 		],
 		map: [
 			function(url) {
-				url.pathname = url.pathname.replace(/\.xtpl$/i, function() {
-					return '.xtpl.js';
-				});
+				if (!/\.(imgbeiliao|ibeiliao)\.com$/.test(url.hostname)) {
+					return;
+				}
 
 				if (md5Map && /\.raw\.js$/.test(url.pathname)) {
 					url.pathname = url.pathname.replace(

@@ -5,40 +5,49 @@
 
 'use strict';
 
-var path = require('path');
-var express = require('express');
-var favicon = require('serve-favicon');
-var logger = require('morgan');
-var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
-var appConfig = require('./config');
+const path = require('path');
+const express = require('express');
+const favicon = require('serve-favicon');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const appConfig = require('./config');
 
-var app = express();
+const app = express();
 app.set('env', appConfig.env);
 
 // 初始化XTemplate引擎
-var xTpl = require('./lib/xtpl');
+const xTpl = require('./lib/xtpl');
 xTpl.express(app, {
 	rootPath: path.join(__dirname, 'public', 'assets')
 });
 
 // uncomment after placing your favicon in /public
-//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+// app.use(favicon(path.join(__dirname, 'favicon.ico')));
 // avoid 404
 app.use('/favicon.ico', function(req, res) {
 	res.end();
 });
 
+// Use for universal links
+app.use('/apple-app-site-association', function(req, res) {
+	res.sendFile(path.join(__dirname, 'apple-app-site-association.json'), {
+		headers: {
+			'Cache-Control': 'no-cache'
+		}
+	});
+});
+
 app.use(logger('dev'));
 
 // 静态文件
-var assetConfig = require('./asset-config');
+const assetConfig = require('./asset-config');
 // 以下情况都要在Express中处理静态资源:
 //   assetConfig为null时，表示未构建（开发环境）
 //   isStaticServer为true时，表示非开发环境下也使用Express作为静态资源服务器
 if (assetConfig == null || appConfig.isStaticServer) {
 	// 非开发环境用~public存放构建后的静态资源
-	var staticPath = path.join(
+	const staticPath = path.join(
 		__dirname,
 		assetConfig == null ? 'public' : '~public'
 	);

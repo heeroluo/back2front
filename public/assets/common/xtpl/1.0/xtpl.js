@@ -5,6 +5,9 @@ const commands = require('./commands');
 
 module.exports = xTpl.createWrapper({
 	loadTpl(tplPath) {
+		if (/\?csrOnly$/.test(tplPath)) {
+			return Promise.resolve('');
+		}
 		if (!/\.\w+$/.test(tplPath)) {
 			tplPath += '.xtpl';
 		}

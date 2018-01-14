@@ -1,7 +1,7 @@
 {{ extend('layouts/root/1.0/root') }}
 
 {{#block ('body')}}
-{{ css('./__') }}
+{{ css('./__.scss') }}
 <h1>{{ title }}</h1>
 <p>{{ content }}</p>
 <div class="example">
