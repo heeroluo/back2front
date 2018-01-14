@@ -9,11 +9,12 @@ jspm_packages
 # Optional npm cache directory
 .npm
 
-# VSCode directory
+# IDE directory
 .vscode
+.idea
 
 # Temporary files
-/public/~assets/*
+public/~assets/*
 
 # Test files
 /test.*
