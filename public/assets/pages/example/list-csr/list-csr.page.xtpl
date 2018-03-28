@@ -1,21 +1,6 @@
 {{ extend('layouts/normal/1.0/normal') }}
 
 {{#block ('main')}}
-<div id="list-outer">
-{{ include('components/list/1.0/list?csrOnly') }}
-</div>
-{{#modjs ('common/xtpl@1.0')}}
-function(xTpl) {
-	xTpl.render('components/list/1.0/list.xtpl', {
-		list: [
-			'Item 1',
-			'Item 2',
-			'Item 3',
-			'Item 4'
-		]
-	}).then(function(result) {
-		document.getElementById('list-outer').innerHTML = result;
-	});
-}
-{{/modjs}}
+	<div id="list-outer"></div>
+	{{ modjs('./list-csr') }}
 {{/block}}

@@ -18,3 +18,6 @@ public/~assets/*
 
 # Test files
 /test.*
+
+# System files
+.DS_Store
