@@ -42,7 +42,9 @@ server.on('listening', () => {
 		'pipe ' + addr :
 		'port ' + addr.port;
 
-	console.log('Listening on ' + bind);
+	console.info('Listening on ' + bind);
+	console.info('BACK2FRONT_ENV: ' + config.env);
+	console.info('NODE_ENV: ' + process.env.NODE_ENV);
 });
 
 // Delete temporary folder on closing

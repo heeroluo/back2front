@@ -18,7 +18,10 @@
     "url": "http://heeroluo.net/"
   },
   "scripts": {
-    "start": "node ./bin/www",
+    "dev": "node ./bin/www --env dev --no-prod",
+    "test": "node ./bin/www --env test --no-prod",
+    "pre": "node ./bin/www --env pre --no-prod",
+    "prod": "node ./bin/www --env prod --no-prod",
     "build-dev": "node ./node_modules/back2front-cli/bin/index build . --env dev",
     "build-test": "node ./node_modules/back2front-cli/bin/index build . --env test",
     "build-pre": "node ./node_modules/back2front-cli/bin/index build . --env pre",
@@ -34,6 +37,7 @@
     "escape-html": "^1.0.3",
     "express": "~4.16.2",
     "fs-extra": "^4.0.2",
+    "minimist": "^1.2.0",
     "morgan": "~1.9.0",
     "request": "^2.83.0",
     "require-dir": "^0.3.2",
