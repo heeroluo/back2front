@@ -1,10 +1,10 @@
 {
   "name": "back2front",
-  "version": "1.2.0",
-  "description": "Frontend fully modular development framework",
+  "version": "2.0.0",
+  "description": "Modular isomorphic web framework",
   "keywords": [
     "back2front",
-    "componentization",
+    "isomorphic",
     "modular"
   ],
   "homepage": "https://github.com/heeroluo/back2front#readme",
@@ -32,31 +32,30 @@
     "url": "https://github.com/heeroluo/back2front.git"
   },
   "dependencies": {
-    "body-parser": "~1.18.2",
+    "body-parser": "~1.18.3",
     "cookie-parser": "~1.4.3",
     "escape-html": "^1.0.3",
-    "express": "~4.16.2",
-    "fs-extra": "^4.0.2",
+    "express": "~4.16.3",
+    "fs-extra": "^6.0.1",
     "minimist": "^1.2.0",
     "morgan": "~1.9.0",
-    "request": "^2.83.0",
-    "require-dir": "^0.3.2",
-    "serve-favicon": "~2.4.5",
+    "require-dir": "^1.0.0",
+    "serve-favicon": "~2.5.0",
     "xtemplate": "~4.6.0"
   },
   "engines": {
     "node": ">=6.5.0"
   },
   "devDependencies": {
-    "autoprefixer": "^7.1.6",
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
+    "autoprefixer": "^8.6.2",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
-    "back2front-cli": "^2.2.2",
-    "postcss": "^6.0.14",
+    "back2front-cli": "^2.3.0",
+    "postcss": "^6.0.22",
     "postcss-load-config": "^1.2.0",
     "postcss-px2rem": "^0.3.0",
-    "precss": "^2.0.0"
+    "precss": "^3.1.2"
   },
   "browserslist": [
     "> 1%",
