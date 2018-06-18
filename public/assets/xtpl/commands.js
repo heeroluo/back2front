@@ -1,17 +1,17 @@
-var util = require('../../util/1.0/util');
+const util = require('../common/util/1.0/util');
 
 
 // 浏览器端无需处理引入静态资源的逻辑，直接输出空白即可
 exports.css =
 exports.js =
 exports.modjs = (scope, option, buffer) => {
-	var empty = '';
-	return option.fn ?  buffer.write(empty) : empty;
+	const empty = '';
+	return option.fn ? buffer.write(empty) : empty;
 };
 
 
 // MD5资源映射表，通过外部js文件（md5-map）引入
-var md5Map;
+let md5Map;
 try {
 	md5Map = window.md5Map;
 } catch (e) {
@@ -20,7 +20,7 @@ try {
 md5Map = md5Map || {};
 
 // 静态资源URL前缀，在root模板中输出为全局变量
-var assetURLPrefix;
+let assetURLPrefix;
 try {
 	assetURLPrefix = util.toURL(window.ASSET_URL_PREFIX);
 } catch (e) {
@@ -33,10 +33,11 @@ if (assetURLPrefix.charAt(assetURLPrefix.length - 1) !== '/') {
 
 // 解析静态资源路径
 exports.resolvePath = (function() {
-	var reIsURL = /^(?:[a-z]+:)?\/\//;
-	
+	const reIsURL = /^(?:[a-z]+:)?\/\//;
+
 	return function(scope, option) {
-		var assetPath = option.params[0], result;
+		const assetPath = option.params[0];
+		let result;
 		if (/^\./.test(assetPath)) {
 			result = this.name.split('/');
 			// 解析相对路径，先拿掉最后的文件名

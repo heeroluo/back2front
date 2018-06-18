@@ -2,25 +2,25 @@
 
 'use strict';
 
-const config = require('../config');
-const app = require('../app');
 const http = require('http');
+const appConfig = require('../config');
+const app = require('../app');
 
 
 // Get port from environment and store in Express.
-app.set('port', config.port);
+app.set('port', appConfig.port);
 
 // Create HTTP server.
 const server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces.
-server.listen(config.port);
+server.listen(appConfig.port);
 server.on('error', (error) => {
 	if (error.syscall !== 'listen') { throw error; }
 
-	let bind = typeof config.port === 'string' ?
-		'Pipe ' + config.port :
-		'Port ' + config.port;
+	const bind = typeof appConfig.port === 'string' ?
+		'Pipe ' + appConfig.port :
+		'Port ' + appConfig.port;
 
 	// handle specific listen errors with friendly messages
 	switch (error.code) {
@@ -37,18 +37,18 @@ server.on('error', (error) => {
 	}
 });
 server.on('listening', () => {
-	let addr = server.address();
-	let bind = typeof addr === 'string' ?
+	const addr = server.address();
+	const bind = typeof addr === 'string' ?
 		'pipe ' + addr :
 		'port ' + addr.port;
 
 	console.info('Listening on ' + bind);
-	console.info('BACK2FRONT_ENV: ' + config.env);
-	console.info('NODE_ENV: ' + process.env.NODE_ENV);
+	console.info('BACK2FRONT_ENV: ' + appConfig.env);
+	console.info('NODE_ENV: ' + appConfig.nodeEnv);
 });
 
 // Delete temporary folder on closing
-if (app.get('env') === 'development') {
+if (appConfig.nodeEnv === 'development') {
 	// Prevent the program from closing instantly
 	process.stdin.resume();
 
@@ -56,7 +56,7 @@ if (app.get('env') === 'development') {
 	const path = require('path');
 
 	process.on('SIGINT', () => {
-		let basePath = path.join(__dirname, '../public');
+		const basePath = path.join(__dirname, '../public');
 		fse.readdirSync(basePath).forEach((p) => {
 			if (p[0] === '~') {
 				fse.removeSync(path.join(basePath, p));

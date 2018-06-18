@@ -132,7 +132,7 @@ class HTMLRouteHelper extends BasicRouteHelper {
 			if (assets) {
 				Object.keys(assets).forEach(function(assetType) {
 					t.viewData(
-						assetType + 'Files',
+						'__' + assetType + 'Files',
 						assets[assetType].slice()
 					);
 				});

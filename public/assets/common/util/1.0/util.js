@@ -5,9 +5,9 @@
  * @return {String} 解析后的URL
  */
 exports.toURL = (path) => {
-	var a = document.createElement('a');
+	let a = document.createElement('a');
 	a.href = path;
-	var url = a.href;
+	const url = a.href;
 	a = null;
 	return url;
 };

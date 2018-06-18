@@ -4,6 +4,7 @@
 <title>{{ title }}</title>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,shrink-to-fit=no" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-touch-fullscreen" content="yes" />
 <meta name="format-detection" content="telephone=no,email=no" />
@@ -17,27 +18,10 @@ var jsFiles = { };
 </script>
 {{ headjs('./bowl') }}
 {{ headjs('./bowl-config') }}
-{{#each (headjsFiles)}}
-<script src="{{ this }}"></script>
-{{/each}}
-<!-- Headjs Hook -->
 {{ css('./root') }}
-{{#each (cssFiles)}}
-<script src="{{ this }}"></script>
-{{/each}}
-<!-- CSS Hook -->
 </head>
 
 <body>
 {{ block('body') }}
-{{#each (jsFiles)}}
-<script src="{{ this }}"></script>
-{{/each}}
-<!-- JS Hook -->
-{{#each (modjsFiles)}}
-<script src="{{ this }}"></script>
-{{/each}}
-<!-- Modjs Hook -->
-{{ block('end') }}
 </body>
 </html>

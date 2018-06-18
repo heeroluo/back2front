@@ -16,6 +16,8 @@ function prependTo(elt, target) {
 }
 
 
+exports.prependTo = prependTo;
+
 exports.basic = (callbacks) => {
 	return prependTo((req, res) => {
 		res.routeHelper.viewData('title', 'Back2Front');

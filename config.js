@@ -22,6 +22,7 @@ let isProd;
 module.exports = {
 	// 环境
 	env: process.env.BACK2FRONT_ENV,
+	nodeEnv: process.env.NODE_ENV,
 
 	// 占用的端口
 	port: 3000,
@@ -35,5 +36,5 @@ module.exports = {
 	},
 
 	// 前后端同构的XTemplate指令模块（路径相对于 lib/xtpl.js）
-	xTplCommands: '../public/assets/common/xtpl/1.0/commands'
+	xTplCommands: '../public/assets/xtpl/commands'
 };

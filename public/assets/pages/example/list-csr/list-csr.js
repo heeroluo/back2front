@@ -1,4 +1,4 @@
-const xTpl = require('common/xtpl@1.0');
+const xTpl = require('xtpl/xtpl');
 
 
 xTpl.render(_tpl('components/list/1.0/list.xtpl'), {

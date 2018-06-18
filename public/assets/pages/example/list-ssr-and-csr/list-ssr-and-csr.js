@@ -1,7 +1,7 @@
-const xTpl = require('common/xtpl@1.0');
+const xTpl = require('xtpl/xtpl');
 
 document.getElementById('change').onclick = function() {
-	var self = this;
+	const self = this;
 	xTpl.render(_tpl('components/list/1.0/list.xtpl'), {
 		list: [
 			'Item 1',
