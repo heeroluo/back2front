@@ -136,7 +136,3 @@ xTpl.render(
 ```
 
 「b.js」执行时就会把HTML注入到body元素。
-
-
-## 更多
-
