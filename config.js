@@ -1,17 +1,15 @@
 const argvs = require('minimist')(process.argv.slice(2));
 
-let isProd;
+const isProd = argvs.prod !== false;
 [argvs.env, process.env.NODE_ENV].some((item) => {
 	// 统一环境写法
 	item = {
-		'': 'local',
 		'development': 'dev',
 		'pre-release': 'pre',
 		'production': 'prod'
 	}[item] || item;
 
-	if (['local', 'dev', 'test', 'pre', 'prod'].indexOf(item) !== -1) {
-		isProd = !(item === 'local' || argvs.prod === false);
+	if (['dev', 'test', 'pre', 'prod'].indexOf(item) !== -1) {
 		process.env.NODE_ENV = isProd ? 'production' : 'development';
 		process.env.BACK2FRONT_ENV = item;
 		return true;
