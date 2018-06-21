@@ -68,17 +68,17 @@
 <link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
-<div class="tabs">
-    <ul class="tabs__nav">
-        <li>Tab A</li>
-        <li>Tab B</li>
-    </ul>
-    <div class="tabs__body">
-        <div>Content A</div>
-        <div>Content B</div>
+    <div class="tabs">
+        <ul class="tabs__nav">
+            <li>Tab A</li>
+            <li>Tab B</li>
+        </ul>
+        <div class="tabs__body">
+            <div>Content A</div>
+            <div>Content B</div>
+        </div>
     </div>
-</div>
-<script>require("components/tabs/1.0/tabs.js");</script>
+    <script>require("components/tabs/1.0/tabs.js");</script>
 </body>
 </html>
 ```
