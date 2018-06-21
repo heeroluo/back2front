@@ -6,7 +6,7 @@
 - 对静态资源进行预处理；
 - 前后端同构。
 
-本框架主要应用于多页应用（Multi page application），并配备对应的构建工具 [Back2Front-CLI](https://github.com/heeroluo/back2front-cli) 。
+本框架主要应用于多页应用（Multi page application），并配备对应的构建工具 [Back2Front-CLI](https://github.com/heeroluo/back2front-cli) 。
 
 兼容性：
 - IE >= 6 。
