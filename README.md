@@ -44,8 +44,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-{{ headjs('lib/bowljs/1.2/bowl') }}
-{{ headjs('lib/bowljs/1.2/bowl-config') }}
+    {{ headjs('lib/bowljs/1.2/bowl') }}
+    {{ headjs('lib/bowljs/1.2/bowl-config') }}
 </head>
 <body>
     {{ parse(
@@ -63,9 +63,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
-<script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
-<link href="/assets/components/tabs/1.0/tabs.css" />
+    <script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
+    <script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
+    <link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
     <div class="tabs">
@@ -110,8 +110,8 @@ xTpl.render(
 <!DOCTYPE html>
 <html>
 <head>
-{{ headjs('lib/bowljs/1.2/bowl') }}
-{{ headjs('lib/bowljs/1.2/bowl-config') }}
+    {{ headjs('lib/bowljs/1.2/bowl') }}
+    {{ headjs('lib/bowljs/1.2/bowl-config') }}
 </head>
 <body>
     {{ modjs('./b') }}
@@ -125,9 +125,9 @@ xTpl.render(
 <!DOCTYPE html>
 <html>
 <head>
-<script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
-<script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
-<link href="/assets/components/tabs/1.0/tabs.css" />
+    <script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
+    <script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
+    <link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
     <script>require("pages/b/b");</script>
