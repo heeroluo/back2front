@@ -1,5 +1,5 @@
 {{ extend('layouts/normal/1.0/normal') }}
 
 {{#block ('main')}}
-{{ parse('components/list/1.0/list', list = list) }}
+	{{ parse('components/list/1.0/list', list = list) }}
 {{/block}}

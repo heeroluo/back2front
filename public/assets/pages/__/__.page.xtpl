@@ -1,15 +1,15 @@
 {{ extend('layouts/root/1.0/root') }}
 
 {{#block ('body')}}
-{{ css('./__.scss') }}
-<h1>{{ title }}</h1>
-<p>{{ content }}</p>
-<div class="example">
-	<h2 class="example__title">Examples:</h2>
-	<ul class="example__list">
-		<li><a href="/example/list-ssr">List (server side rendering)</a></li>
-		<li><a href="/example/list-ssr-and-csr">List (server side rendering &amp; client side rendering)</a></li>
-		<li><a href="/example/list-csr">List (client side rendering)</a></li>
-	</ul>
-</div>
+	{{ css('./__.scss') }}
+	{{ include('./title') }}
+	<p>{{ content }}</p>
+	<div class="example">
+		<h2 class="example__title">Examples:</h2>
+		<ul class="example__list">
+			<li><a href="/example/list-ssr">List (server side rendering)</a></li>
+			<li><a href="/example/list-ssr-and-csr">List (server side rendering &amp; client side rendering)</a></li>
+			<li><a href="/example/list-csr">List (client side rendering)</a></li>
+		</ul>
+	</div>
 {{/block}}
