@@ -2,7 +2,7 @@
 
 **Back2Front** 是基于 [Express](https://github.com/expressjs/expressjs.com) 和 [XTemplate](https://github.com/xtemplate/xtemplate) 开发的**模块化**前后端**同构**框架，支持：
 
-- 通过特定语法把模块的HTML及其依赖的JS、CSS一并引入到页面中；
+- 把HTML及其对应的JS、CSS封装成模块，便于整体调用；
 - 对静态资源进行预处理；
 - 前后端同构。
 
