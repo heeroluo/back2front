@@ -1,4 +1,4 @@
-{{ set(title = '标签切换（服务器端渲染）') }}
+{{ set(title = '标签切换（服务器端渲染和前端渲染）') }}
 
 {{ extend('layouts/normal/1.0/normal') }}
 
