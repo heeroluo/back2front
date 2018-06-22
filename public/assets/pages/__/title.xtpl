@@ -1,1 +1,4 @@
-<h1>{{ title }}</h1>
+<h1 class="p-title">{{ title }}</h1>
+<h2 class="p-subtitle"> —— 模块化前后端同构框架</h2>
+
+{{ css('./title.scss') }}

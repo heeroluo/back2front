@@ -1,0 +1,14 @@
+<div class="c-tabs">
+	<ul class="nav">
+		{{#each (tabsNav)}}
+		<li class="nav-item js-nav-item">{{ this }}</li>
+		{{/each}}
+	</ul>
+	<div class="body">
+		{{#each (tabsBody)}}
+		<li class="body-item js-body-item">{{ this }}</li>
+		{{/each}}
+	</div>
+</div>
+
+{{ css('./tabs.scss') }}

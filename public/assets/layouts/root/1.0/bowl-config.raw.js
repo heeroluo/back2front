@@ -13,10 +13,6 @@
 		],
 		map: [
 			function(url) {
-				if (!/\.(imgbeiliao|ibeiliao)\.com$/.test(url.hostname)) {
-					return;
-				}
-
 				if (md5Map && /\.raw\.js$/.test(url.pathname)) {
 					url.pathname = url.pathname.replace(
 						/(\/assets\/)(.+)$/,

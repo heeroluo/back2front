@@ -1,6 +1,0 @@
-{{ extend('layouts/normal/1.0/normal') }}
-
-{{#block ('main')}}
-	<div id="list-outer"></div>
-	{{ modjs('./list-csr') }}
-{{/block}}

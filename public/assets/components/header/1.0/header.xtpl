@@ -1,4 +1,4 @@
 {{ css('./header') }}
 <div class="header">
-	<a href="/">Return home</a>
+	<a href="/">&lt; 回到首页</a>
 </div>

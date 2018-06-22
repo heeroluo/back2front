@@ -1,14 +1,9 @@
 body {
-	margin: 40px;
-	font-family: 'Open Sans', sans-serif, arial;
+	margin: 30px;
+	font-family: 'Lantinghei SC', 'Hiragino Sans GB', 'Open Sans', 'Helvetica Neue', Helvetica, sans-serif;
 	font-size: 16px;
 	color: #383838;
 }
-h1, h2, ul, li { margin: 0; padding: 0; }
+h1, h2, ul, li, p { margin: 0; padding: 0; }
 h1, h2 { font-weight: normal; }
 a { color: #0096ff; }
-
-.container {
-	width: 700px;
-	margin: 0 auto;
-}

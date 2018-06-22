@@ -1,0 +1,38 @@
+.c-tabs {
+	margin-top: 30px;
+	border: 1px solid #383838;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	.nav {
+		overflow: hidden;
+		list-style-type: none;
+	}
+	.nav-item {
+		float: left;
+		width: 25%;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		overflow: hidden;
+		cursor: pointer;
+	}
+	.nav-item--current {
+		font-weight: bold;
+		background: #ffce00;
+	}
+
+	.body {
+		margin-top: 10px;
+		padding: 20px;
+		list-style-type: none;
+	}
+	.body-item {
+		display: none;
+	}
+	.body-item--current {
+		display: block;
+	}
+}

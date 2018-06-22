@@ -1,0 +1,7 @@
+{{ set(title = '标签切换（前端渲染）') }}
+
+{{ extend('layouts/normal/1.0/normal') }}
+
+{{#block ('main')}}
+	{{ modjs('./tabs-csr') }}
+{{/block}}

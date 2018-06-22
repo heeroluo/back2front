@@ -3,13 +3,11 @@
 {{#block ('body')}}
 	{{ css('./__.scss') }}
 	{{ include('./title') }}
-	<p>{{ content }}</p>
-	<div class="example">
-		<h2 class="example__title">Examples:</h2>
-		<ul class="example__list">
-			<li><a href="/example/list-ssr">List (server side rendering)</a></li>
-			<li><a href="/example/list-ssr-and-csr">List (server side rendering &amp; client side rendering)</a></li>
-			<li><a href="/example/list-csr">List (client side rendering)</a></li>
-		</ul>
-	</div>
+	<p class="p-content">渲染示例：</p>
+	<ul class="p-examples">
+		<li><a href="/example/tabs-ssr">标签切换（服务器端渲染）</a></li>
+		<li><a href="/example/tabs-csr">标签切换（前端渲染）</a></li>
+		<li><a href="/example/tabs-ssr-and-csr">标签切换（服务器端渲染和前端渲染）</a></li>
+	</ul>
+	{{ include('components/footer/1.0/footer') }}
 {{/block}}

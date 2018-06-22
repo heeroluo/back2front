@@ -1,16 +1,14 @@
 'use strict';
 
-var pageType = require('../page-type');
+const pageType = require('../page-type');
 
 
-exports['list-ssr'] = 
-exports['list-ssr-and-csr'] = pageType.basic(function(req, res, next) {
-	res.routeHelper.viewData('list', [
-		'Item A',
-		'Item B',
-		'Item C',
-		'Item D'
-	]);
+exports['tabs-ssr'] =
+exports['tabs-ssr-and-csr'] = pageType.basic((req, res) => {
+	res.routeHelper.viewData({
+		tabsNav: ['Tab A', 'Tab B', 'Tab C', 'Tab D'],
+		tabsBody: ['I am A', 'I am B', 'I am C', 'I am D']
+	});
 });
 
-exports['list-csr'] = pageType.basic(function(req, res, next) { });
+exports['tabs-csr'] = pageType.basic();

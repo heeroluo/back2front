@@ -1,0 +1,16 @@
+{{ set(title = '标签切换（服务器端渲染）') }}
+
+{{ extend('layouts/normal/1.0/normal') }}
+
+{{#block ('main')}}
+	{{ parse(
+		'components/tabs/1.0/tabs',
+		tabsNav = tabsNav,
+		tabsBody = tabsBody
+	) }}
+	{{#modjs ('lib/dom/1.1/dom', 'components/tabs/1.0/tabs')}}
+	function($, tabs) {
+		tabs.init($('.c-tabs'));
+	}
+	{{/modjs}}
+{{/block}}
