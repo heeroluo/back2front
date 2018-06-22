@@ -49,7 +49,7 @@
 </head>
 <body>
 {{ parse(
-    'components/tabs/1.0/tabs'
+    'components/tabs/1.0/tabs',
     tabsNav = ['Tab A', 'Tab B'],
     tabsBody = ['Content A', 'Content B']
 ) }}
