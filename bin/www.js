@@ -49,19 +49,15 @@ server.on('listening', () => {
 
 // Delete temporary folder on closing
 if (appConfig.nodeEnv === 'development') {
-	// Prevent the program from closing instantly
-	process.stdin.resume();
-
-	const fse = require('fs-extra');
-	const path = require('path');
-
-	process.on('SIGINT', () => {
+	const exitHook = require('exit-hook');
+	exitHook(() => {
+		const fse = require('fs-extra');
+		const path = require('path');
 		const basePath = path.join(__dirname, '../public');
 		fse.readdirSync(basePath).forEach((p) => {
 			if (p[0] === '~') {
 				fse.removeSync(path.join(basePath, p));
 			}
 		});
-		process.exit();
 	});
 }
