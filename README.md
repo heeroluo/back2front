@@ -23,11 +23,11 @@
 
 ```
 {{! components/tabs/1.0/tabs.xtpl }}
-<div class="tabs">
-    <ul class="tabs__nav">
+<div class="c-tabs">
+    <ul class="nav">
         {{#each (tabNav)}}<li>{{ this }}</li>{{/each}}
     </ul>
-    <div class="tabs__body">
+    <div class="body">
         {{#each (tabBody)}}<div>{{ this }}</div>{{/each}}
     </div>
 </div>
@@ -50,8 +50,8 @@
 <body>
 {{ parse(
     'components/tabs/1.0/tabs'
-    tabNav = ['Tab A', 'Tab B'],
-    tabBody = ['Content A', 'Content B']
+    tabsNav = ['Tab A', 'Tab B'],
+    tabsBody = ['Content A', 'Content B']
 ) }}
 </body>
 </html>
@@ -68,12 +68,12 @@
 <link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
-<div class="tabs">
-    <ul class="tabs__nav">
+<div class="c-tabs">
+    <ul class="nav">
         <li>Tab A</li>
         <li>Tab B</li>
     </ul>
-    <div class="tabs__body">
+    <div class="body">
         <div>Content A</div>
         <div>Content B</div>
     </div>
@@ -94,8 +94,8 @@ const $ = require('lib/jquery/1.9/jquery');
 
 xTpl.render(
     _tpl('components/tabs/1.0/tabs.xtpl'), {
-        tabNav: ['Tab A', 'Tab B'],
-        tabBody: ['Content A', 'Content B']
+        tabsNav: ['Tab A', 'Tab B'],
+        tabsBody: ['Content A', 'Content B']
     }
 ).then((html) => {
     $(html).appendTo('body');
