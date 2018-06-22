@@ -44,15 +44,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-    {{ headjs('lib/bowljs/1.2/bowl') }}
-    {{ headjs('lib/bowljs/1.2/bowl-config') }}
+{{ headjs('lib/bowljs/1.2/bowl') }}
+{{ headjs('lib/bowljs/1.2/bowl-config') }}
 </head>
 <body>
-    {{ parse(
-        'components/tabs/1.0/tabs'
-        tabNav = ['Tab A', 'Tab B'],
-        tabBody = ['Content A', 'Content B']
-    ) }}
+{{ parse(
+    'components/tabs/1.0/tabs'
+    tabNav = ['Tab A', 'Tab B'],
+    tabBody = ['Content A', 'Content B']
+) }}
 </body>
 </html>
 ```
@@ -63,22 +63,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
-    <script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
-    <link href="/assets/components/tabs/1.0/tabs.css" />
+<script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
+<script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
+<link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
-    <div class="tabs">
-        <ul class="tabs__nav">
-            <li>Tab A</li>
-            <li>Tab B</li>
-        </ul>
-        <div class="tabs__body">
-            <div>Content A</div>
-            <div>Content B</div>
-        </div>
+<div class="tabs">
+    <ul class="tabs__nav">
+        <li>Tab A</li>
+        <li>Tab B</li>
+    </ul>
+    <div class="tabs__body">
+        <div>Content A</div>
+        <div>Content B</div>
     </div>
-    <script>require("components/tabs/1.0/tabs.js");</script>
+</div>
+<script>require("components/tabs/1.0/tabs.js");</script>
 </body>
 </html>
 ```
@@ -110,11 +110,11 @@ xTpl.render(
 <!DOCTYPE html>
 <html>
 <head>
-    {{ headjs('lib/bowljs/1.2/bowl') }}
-    {{ headjs('lib/bowljs/1.2/bowl-config') }}
+{{ headjs('lib/bowljs/1.2/bowl') }}
+{{ headjs('lib/bowljs/1.2/bowl-config') }}
 </head>
 <body>
-    {{ modjs('./b') }}
+{{ modjs('./b') }}
 </body>
 </html>
 ```
@@ -125,12 +125,12 @@ xTpl.render(
 <!DOCTYPE html>
 <html>
 <head>
-    <script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
-    <script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
-    <link href="/assets/components/tabs/1.0/tabs.css" />
+<script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
+<script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
+<link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
-    <script>require("pages/b/b");</script>
+<script>require("pages/b/b");</script>
 </body>
 </html>
 ```
