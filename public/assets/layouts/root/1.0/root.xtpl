@@ -16,7 +16,7 @@ var ASSET_URL_PREFIX = {{{ jsonEncode(assetURLPrefix()) }}};
 var cssFiles = { };
 var jsFiles = { };
 </script>
-{{ headjs('./bowl') }}
+{{ headjs('lib/bowljs/1.2/bowl') }}
 {{ headjs('./bowl-config') }}
 {{ css('./root') }}
 </head>

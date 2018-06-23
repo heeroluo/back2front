@@ -45,7 +45,7 @@
 <html>
 <head>
 {{ headjs('lib/bowljs/1.2/bowl') }}
-{{ headjs('lib/bowljs/1.2/bowl-config') }}
+{{ headjs('./bowl-config') }}
 </head>
 <body>
 {{ parse(
@@ -64,7 +64,7 @@
 <html>
 <head>
 <script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
-<script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
+<script src="/assets/pages/a/bowl-config.raw.js"></script>
 <link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
@@ -111,7 +111,7 @@ xTpl.render(
 <html>
 <head>
 {{ headjs('lib/bowljs/1.2/bowl') }}
-{{ headjs('lib/bowljs/1.2/bowl-config') }}
+{{ headjs('./bowl-config') }}
 </head>
 <body>
 {{ modjs('./b') }}
@@ -126,7 +126,7 @@ xTpl.render(
 <html>
 <head>
 <script src="/assets/lib/bowljs/1.2/bowl.raw.js"></script>
-<script src="/assets/lib/bowljs/1.2/bowl-config.raw.js"></script>
+<script src="/assets/pages/b/bowl-config.raw.js"></script>
 <link href="/assets/components/tabs/1.0/tabs.css" />
 </head>
 <body>
