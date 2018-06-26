@@ -1,6 +1,6 @@
 {
 	"name": "back2front",
-	"script": "bin/www",
+	"script": "bin/www.js",
 	"log_date_format": "YYYY-MM-DD HH:mm:ss Z",
 	"exec_mode": "fork",
 	"instances": 1,
