@@ -7,9 +7,9 @@
 		basePath: global.ASSET_URL_PREFIX || '/assets/',
 		debug: false,
 		preload: [
-			Function.prototype.bind ? '' : 'lib/compatibility/es5-shim.raw.js',
-			window.JSON ? '' : 'lib/compatibility/json2.raw.js',
-			window.localStorage ? '' : 'lib/compatibility/localstorage.raw.js'
+			Function.prototype.bind ? '' : 'lib/compatibility/es5-shim.preload.raw.js',
+			window.JSON ? '' : 'lib/compatibility/json2.preload.raw.js',
+			window.localStorage ? '' : 'lib/compatibility/localstorage.preload.raw.js'
 		],
 		map: [
 			function(url) {
