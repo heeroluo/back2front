@@ -61,7 +61,7 @@ module.exports = function(express, app) {
 			if (typeof subRoute === 'function' || Array.isArray(subRoute)) {
 				subRoute = { callbacks: subRoute };
 			} else {
-				subRoute = util.extend({ }, subRoute);
+				subRoute = Object.assign({ }, subRoute);
 			}
 			if (!Array.isArray(subRoute.callbacks)) {
 				subRoute.callbacks = [subRoute.callbacks];
@@ -143,7 +143,7 @@ module.exports = function(express, app) {
 			});
 		} catch (e) {
 			res.end();
-			throw err;
+			throw e;
 		}
 	});
 };

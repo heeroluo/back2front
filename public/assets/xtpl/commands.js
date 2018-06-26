@@ -81,9 +81,13 @@ exports.jsonEncode = (scope, option) => {
 	return JSON.stringify(option.params[0]);
 };
 
+function toString(str) {
+	return str == null ? '' : String(str);
+}
+
 // 换行符转为 <br />
 exports.nl2br = (scope, option) => {
-	return String(option.params[0]).replace(/\r?\n/g, '<br />');
+	return toString(option.params[0]).replace(/\r?\n/g, '<br />');
 };
 
 // 把空白替换成 &nbsp;
