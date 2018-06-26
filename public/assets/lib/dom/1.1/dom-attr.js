@@ -1,6 +1,6 @@
 /*!
  * JRaiser 2 Javascript Library
- * dom-attr@1.1.0 (2017-02-03T08:29:50Z)
+ * dom-attr@1.1.0 (2018-06-26T07:32:34Z)
  * http://jraiser.org/ | Released under MIT license
  */
 
@@ -64,37 +64,35 @@ if ('cssText' in document.documentElement.style) {
 }
 
 var getNodeAttribute, setNodeAttribute, removeNodeAttribute;
-!function() {
-	var div = document.createElement('div');
-	div.setAttribute('class', 't');
+var div = document.createElement('div');
+div.setAttribute('class', 't');
 
-	// 旧IE下一些特殊属性要通过属性节点来获取/设置
-	if (div.className !== 't') {
-		getNodeAttribute = function(node, name) {
-			var attrNode = node.getAttributeNode(name);
-			return attrNode ? attrNode.value : null;
-		};
-		setNodeAttribute = function(node, name, value) {
-			var attrNode = node.getAttributeNode(name);
-			if (!attrNode) {
-				node.setAttributeNode(
-					( attrNode = node.ownerDocument.createAttribute(name) )
-				);
-			}
-			attrNode.value = value + '';
-		};
-		removeNodeAttribute = function(node, name) {
-			var attrNode = node.getAttributeNode(name);
-			if (attrNode) { node.removeAttributeNode(attrNode); }
-		};
-	} else {
-		getNodeAttribute = function(node, name) { return node.getAttribute(name); };
-		setNodeAttribute = function(node, name, value) { node.setAttribute(name, value); };
-		removeNodeAttribute = function(node, name) { node.removeAttribute(name); };
-	}
+// 旧IE下一些特殊属性要通过属性节点来获取/设置
+if (div.className !== 't') {
+	getNodeAttribute = function(node, name) {
+		var attrNode = node.getAttributeNode(name);
+		return attrNode ? attrNode.value : null;
+	};
+	setNodeAttribute = function(node, name, value) {
+		var attrNode = node.getAttributeNode(name);
+		if (!attrNode) {
+			node.setAttributeNode(
+				( attrNode = node.ownerDocument.createAttribute(name) )
+			);
+		}
+		attrNode.value = value + '';
+	};
+	removeNodeAttribute = function(node, name) {
+		var attrNode = node.getAttributeNode(name);
+		if (attrNode) { node.removeAttributeNode(attrNode); }
+	};
+} else {
+	getNodeAttribute = function(node, name) { return node.getAttribute(name); };
+	setNodeAttribute = function(node, name, value) { node.setAttribute(name, value); };
+	removeNodeAttribute = function(node, name) { node.removeAttribute(name); };
+}
 
-	div = null;
-}();
+div = null;
 
 // 判断是否支持获取/设置节点属性
 function supportAttr(node) {
