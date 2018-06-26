@@ -13,8 +13,6 @@
 <script>
 var ENV = {{{ jsonEncode(ENV) }}};
 var ASSET_URL_PREFIX = {{{ jsonEncode(assetURLPrefix()) }}};
-var cssFiles = { };
-var jsFiles = { };
 </script>
 {{ headjs('lib/bowljs/1.2/bowl') }}
 {{ headjs('./bowl-config') }}
