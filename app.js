@@ -29,15 +29,6 @@ app.use('/favicon.ico', function(req, res) {
 	res.end();
 });
 
-// Use for universal links
-app.use('/apple-app-site-association', function(req, res) {
-	res.sendFile(path.join(__dirname, 'apple-app-site-association.json'), {
-		headers: {
-			'Cache-Control': 'no-cache'
-		}
-	});
-});
-
 app.use(logger('dev'));
 
 // 静态文件
