@@ -125,7 +125,8 @@ module.exports = function(express, app) {
 	});
 
 	// 异常处理
-	app.use(function(err, req, res) {
+	/* eslint-disable */
+	app.use(function(err, req, res, next) {
 		if (typeof err === 'string') { err = new Error(err); }
 		err.status = err.status || 500;
 
