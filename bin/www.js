@@ -49,8 +49,7 @@ server.on('listening', () => {
 
 // Delete temporary folder on closing
 if (appConfig.nodeEnv === 'development') {
-	const exitHook = require('exit-hook');
-	exitHook(() => {
+	const exitHandler = () => {
 		const fse = require('fs-extra');
 		const path = require('path');
 		const basePath = path.join(__dirname, '../public');
@@ -59,5 +58,13 @@ if (appConfig.nodeEnv === 'development') {
 				fse.removeSync(path.join(basePath, p));
 			}
 		});
-	});
+		process.exit();
+	};
+
+	process.stdin.resume();
+	process.on('exit', exitHandler);
+	process.on('SIGINT', exitHandler);
+	process.on('SIGUSR1', exitHandler);
+	process.on('SIGUSR2', exitHandler);
+	process.on('uncaughtException', exitHandler);
 }

@@ -36,7 +36,6 @@
     "body-parser": "~1.18.3",
     "cookie-parser": "~1.4.3",
     "escape-html": "^1.0.3",
-    "exit-hook": "^2.0.0",
     "express": "~4.16.3",
     "fs-extra": "^6.0.1",
     "minimist": "^1.2.0",
