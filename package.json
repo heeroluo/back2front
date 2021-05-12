@@ -53,7 +53,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-stage-2": "^6.24.1",
     "back2front-cli": "^2.3.4",
-    "postcss": "^7.0.17",
+    "postcss": "^8.2.10",
     "postcss-load-config": "^2.1.0",
     "postcss-px2rem": "^0.3.0",
     "precss": "^4.0.0"
